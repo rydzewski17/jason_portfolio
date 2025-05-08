@@ -18,7 +18,7 @@ const NetflixTitle = () => {
     if (isClicked) {
       const timer = setTimeout(() => {
         navigate('/browse');
-      }, 4000);
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [isClicked, navigate]);
