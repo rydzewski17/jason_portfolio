@@ -1,25 +1,15 @@
-// queries/getProfileBanner.ts
-import datoCMSClient from './datoCMSClient';
-import { ProfileBanner } from '../types';
+// Replaced DatoCMS fetch with static content
 
-const GET_PROFILE_BANNER = `
- {
-  profilebanner {
-    backgroundImage {
-      url
-    }
-    headline
-    resumeLink {
-      url
-    }
-    linkedinLink
-    profileSummary
-  }
-}
-`;
-
-export async function getProfileBanner(): Promise<ProfileBanner> {
-  const data = await datoCMSClient.request<{ profilebanner: ProfileBanner }>(GET_PROFILE_BANNER);
-  console.log("🚀 ~ getProfileBanner ~ data:", data)
-  return data.profilebanner;
+export async function getProfileBanner() {
+  return {
+    backgroundImage: {
+      url: "/images/background.jpg"  // You can change this later
+    },
+    headline: "Marketing Technologist & Growth Strategist",
+    resumeLink: {
+      url: "/resume.pdf"  // Upload this to /public later
+    },
+    linkedinLink: "https://www.linkedin.com/in/jasonrydzewski",
+    profileSummary: "I help companies grow through performance marketing, automation, and creative strategy."
+  };
 }
